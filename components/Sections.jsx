@@ -14,7 +14,7 @@ export function Hero() {
         <div>
           <div className="hero__chips">
             <span className="chip chip--live">Available for roles &amp; freelance</span>
-            <span className="chip">Power Platform · Azure · Agentic AI</span>
+            <span className="chip">Microsoft Power Platform · Azure · Agentic AI</span>
           </div>
           <h1>I forge manual work into <span className="grad">reliable enterprise systems</span>.</h1>
           <p className="hero__role">{profile.title} · {profile.location}</p>
@@ -28,6 +28,17 @@ export function Hero() {
           <div className="frame"><img src="hero.jpg" alt={profile.name} width="864" height="864" /></div>
           <div className="pill"><div className="k">Experience</div><div className="v">5+ years</div></div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function Mission() {
+  return (
+    <section className="mission" aria-label="Mission">
+      <div className="wrap">
+        <span className="mission__label">Mission</span>
+        <p className="mission__text">{profile.mission}</p>
       </div>
     </section>
   );

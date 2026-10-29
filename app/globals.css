@@ -150,13 +150,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero__photo .pill .k{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .hero__photo .pill .v{font-family:var(--font-display);font-weight:700;font-size:1rem}
 
-/* ---------- stats strip ---------- */
-.stats{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:26px 20px;border-right:1px solid var(--line)}
-.stat:last-child{border-right:0}
-.stat .num{font-family:var(--font-display);font-weight:800;font-size:clamp(1.5rem,3.2vw,2.05rem);color:var(--accent);font-variant-numeric:tabular-nums}
-.stat .lbl{font-size:.84rem;color:var(--muted);margin-top:2px}
+/* ---------- mission strip ---------- */
+.mission{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mission .wrap{display:flex;align-items:center;gap:22px;padding-block:30px;flex-wrap:wrap}
+.mission__label{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);position:relative;padding-left:32px;flex:none}
+.mission__label::before{content:"";position:absolute;left:0;top:50%;width:22px;height:2px;background:var(--accent);transform:translateY(-50%)}
+.mission__text{font-family:var(--font-display);font-weight:600;font-size:clamp(1.1rem,2.3vw,1.5rem);color:var(--fg);letter-spacing:-.01em;line-height:1.32;flex:1;min-width:260px;text-wrap:balance}
 
 /* ---------- card grids ---------- */
 .grid{display:grid;gap:18px}

@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav";
 import Contact from "@/components/Contact";
 import {
-  Hero, WhatIDo, Expertise, Work, Experience, Credentials, About, Footer,
+  Hero, Mission, WhatIDo, Expertise, Work, Experience, Credentials, About, Footer,
 } from "@/components/Sections";
 
 export default function Page() {
@@ -10,6 +10,7 @@ export default function Page() {
       <Nav />
       <main>
         <Hero />
+        <Mission />
         <WhatIDo />
         <Expertise />
         <Work />
