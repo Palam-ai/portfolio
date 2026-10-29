@@ -108,15 +108,18 @@ export function Work() {
         <div className="cases">
           {useCases.map((c) => (
             <article className="case" key={c.title}>
-              <span className="tag">{c.tag}</span>
-              <h3>{c.title}</h3>
-              <p className="blurb">{c.body}</p>
-              <div className="metrics">
-                {c.metrics.map((m, i) => (
-                  <div key={i}><div className="m">{m.value}</div><div className="c">{m.label}</div></div>
-                ))}
+              {c.image && <div className="case__img"><img src={c.image} alt={c.title} width="640" height="400" loading="lazy" /></div>}
+              <div className="case__body">
+                <span className="tag">{c.tag}</span>
+                <h3>{c.title}</h3>
+                <p className="blurb">{c.body}</p>
+                <div className="metrics">
+                  {c.metrics.map((m, i) => (
+                    <div key={i}><div className="m">{m.value}</div><div className="c">{m.label}</div></div>
+                  ))}
+                </div>
+                <div className="stack">{c.stack.map((s) => <b key={s}>{s}</b>)}</div>
               </div>
-              <div className="stack">{c.stack.map((s) => <b key={s}>{s}</b>)}</div>
             </article>
           ))}
         </div>

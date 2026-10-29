@@ -179,8 +179,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* ---------- work / use cases ---------- */
 .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.case{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
-.case::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--blue),var(--teal))}
+.case{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.case__img{width:100%;aspect-ratio:640/400;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.case__img img{width:100%;height:100%;object-fit:cover;display:block}
+.case__body{display:flex;flex-direction:column;flex:1;padding:22px;position:relative}
+.case__body::before{content:"";position:absolute;left:22px;right:22px;top:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));display:none}
 .case .tag{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-weight:600}
 .case h3{font-size:1.16rem;margin-top:12px}
 .case .blurb{color:var(--muted);font-size:.92rem;margin-top:10px;flex:1}
