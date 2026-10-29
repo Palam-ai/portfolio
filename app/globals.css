@@ -144,8 +144,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero__sub{color:var(--muted);font-size:clamp(1rem,2.1vw,1.16rem);margin-top:16px;max-width:48ch}
 .hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .hero__photo{position:relative;justify-self:center}
-.hero__photo .frame{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);width:min(320px,78vw);background:var(--surface)}
-.hero__photo img{width:100%;aspect-ratio:864/1045;object-fit:cover}
+.hero__photo .frame{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);width:min(340px,80vw);background:var(--surface)}
+.hero__photo img{width:100%;aspect-ratio:1/1;object-fit:cover}
 .hero__photo .pill{position:absolute;left:-16px;bottom:24px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:10px 14px;box-shadow:var(--shadow)}
 .hero__photo .pill .k{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .hero__photo .pill .v{font-family:var(--font-display);font-weight:700;font-size:1rem}
@@ -194,7 +194,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* ---------- experience ---------- */
 .orgs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .org{display:flex;flex-direction:column;align-items:flex-start;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
-.org .logo{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;background:var(--accent-tint);color:var(--accent);font-family:var(--font-display);font-weight:800;font-size:1.1rem}
+.org .logo{width:68px;height:68px;border-radius:14px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);overflow:hidden;padding:8px}
+.org .logo img{width:100%;height:100%;object-fit:contain}
 .org .co{font-family:var(--font-display);font-weight:700;font-size:1.1rem}
 .org .role{font-size:.86rem;color:var(--muted)}
 

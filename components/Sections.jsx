@@ -1,8 +1,11 @@
 import {
-  profile, stats, whatIDo, expertise, useCases,
+  profile, whatIDo, expertise, useCases,
   experience, credentials, hobbies, about,
 } from "@/lib/content";
 import { Icon } from "./Icons";
+import { CarFront, BookOpen, LineChart } from "lucide-react";
+
+const hobbyIcon = { car: CarFront, book: BookOpen, chart: LineChart };
 
 export function Hero() {
   return (
@@ -22,21 +25,9 @@ export function Hero() {
           </div>
         </div>
         <div className="hero__photo">
-          <div className="frame"><img src="hero.jpg" alt={profile.name} width="864" height="1045" /></div>
+          <div className="frame"><img src="hero.jpg" alt={profile.name} width="864" height="864" /></div>
           <div className="pill"><div className="k">Experience</div><div className="v">5+ years</div></div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function Stats() {
-  return (
-    <section className="stats" aria-label="By the numbers">
-      <div className="wrap">
-        {stats.map((s) => (
-          <div className="stat" key={s.label}><div className="num">{s.num}</div><div className="lbl">{s.label}</div></div>
-        ))}
       </div>
     </section>
   );
@@ -133,7 +124,7 @@ export function Experience() {
         <div className="orgs">
           {experience.map((o) => (
             <div className="org" key={o.company}>
-              <div className="logo">{o.company[0]}</div>
+              <div className="logo"><img src={o.logo} alt={o.company} width="112" height="112" /></div>
               <div className="co">{o.company}</div>
               <div className="role">{o.role}</div>
             </div>
@@ -180,11 +171,16 @@ export function About() {
         <div className="about__text">
           <p className="eyebrow">About me</p>
           <h2 style={{ margin: "14px 0 18px" }}>A bit about me</h2>
-          <p>{about}</p>
+          {about.map((para, i) => (
+            <p key={i} style={{ marginBottom: i < about.length - 1 ? "14px" : 0 }}>{para}</p>
+          ))}
           <div className="hobbies">
-            {hobbies.map((h) => (
-              <div className="hobby" key={h.title}><div className="ic"><Icon name={h.icon} size={18} /></div><span>{h.title}</span></div>
-            ))}
+            {hobbies.map((h) => {
+              const H = hobbyIcon[h.icon];
+              return (
+                <div className="hobby" key={h.title}><div className="ic"><H size={18} strokeWidth={2} /></div><span>{h.title}</span></div>
+              );
+            })}
           </div>
         </div>
       </div>
