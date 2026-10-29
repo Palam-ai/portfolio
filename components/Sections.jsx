@@ -81,7 +81,12 @@ export function Expertise() {
             <h3>{g.group}</h3>
             <div className="tiles">
               {g.items.map((it) => (
-                <span className="tile" key={it}><span className="dot" />{it}</span>
+                <span className="tile" key={it.name}>
+                  {it.logo
+                    ? <span className="logoplate"><img src={it.logo} alt="" width="22" height="22" /></span>
+                    : <span className="dot" />}
+                  {it.name}
+                </span>
               ))}
             </div>
           </div>
