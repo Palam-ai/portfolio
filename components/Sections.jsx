@@ -14,10 +14,11 @@ export function Hero() {
       <div className="wrap">
         <div>
           <div className="hero__chips">
-            <span className="chip chip--live">Available for roles &amp; freelance</span>
+            <span className="chip chip--live">Available for Opportunities &amp; Freelance</span>
             <span className="chip">Microsoft Power Platform · Azure · Agentic AI</span>
           </div>
-          <h1>I, <span className="hero__nm">{profile.name}</span>, forge manual work into <span className="grad">reliable enterprise systems</span>.</h1>
+          <p className="hero__greet">Hi, I'm <span className="hero__nm">{profile.name}</span>.</p>
+          <h1>I forge manual work into <span className="grad">reliable enterprise systems</span>.</h1>
           <p className="hero__role">{profile.title} · {profile.location}</p>
           <p className="hero__sub">{profile.tagline}</p>
           <div className="hero__cta">
@@ -26,7 +27,7 @@ export function Hero() {
           </div>
         </div>
         <div className="hero__photo">
-          <div className="frame"><img src="hero.jpg" alt={profile.name} width="864" height="1045" /></div>
+          <div className="frame"><img src="hero.jpg" alt={profile.name} width="1056" height="1161" /></div>
           <div className="pill"><div className="k">Experience</div><div className="v">5+ years</div></div>
         </div>
       </div>
