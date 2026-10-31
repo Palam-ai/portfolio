@@ -3,9 +3,10 @@ import {
   experience, credentials, hobbies, about,
 } from "@/lib/content";
 import { Icon } from "./Icons";
-import { CarFront, BookOpen, LineChart } from "lucide-react";
+import { CarFront, BookOpen, LineChart, AppWindow, Workflow, Bot, Database, LifeBuoy } from "lucide-react";
 
 const hobbyIcon = { car: CarFront, book: BookOpen, chart: LineChart };
+const svcIcon = { app: AppWindow, flow: Workflow, agent: Bot, data: Database, support: LifeBuoy };
 
 export function Hero() {
   return (
@@ -16,6 +17,7 @@ export function Hero() {
             <span className="chip chip--live">Available for roles &amp; freelance</span>
             <span className="chip">Microsoft Power Platform · Azure · Agentic AI</span>
           </div>
+          <p className="hero__name">{profile.name}</p>
           <h1>I forge manual work into <span className="grad">reliable enterprise systems</span>.</h1>
           <p className="hero__role">{profile.title} · {profile.location}</p>
           <p className="hero__sub">{profile.tagline}</p>
@@ -25,7 +27,7 @@ export function Hero() {
           </div>
         </div>
         <div className="hero__photo">
-          <div className="frame"><img src="hero.jpg" alt={profile.name} width="864" height="864" /></div>
+          <div className="frame"><img src="hero.jpg" alt={profile.name} width="864" height="1045" /></div>
           <div className="pill"><div className="k">Experience</div><div className="v">5+ years</div></div>
         </div>
       </div>
@@ -54,13 +56,16 @@ export function WhatIDo() {
           <p>{whatIDo.lead}</p>
         </div>
         <div className="grid g-3">
-          {whatIDo.cards.map((c, i) => (
-            <div className={"card svc" + (i % 2 ? " svc--2" : "")} key={c.title}>
-              <div className="ic"><Icon name={c.icon} /></div>
-              <h3>{c.title}</h3>
-              <p>{c.body}</p>
-            </div>
-          ))}
+          {whatIDo.cards.map((c, i) => {
+            const S = svcIcon[c.icon];
+            return (
+              <div className={"card svc" + (i % 2 ? " svc--2" : "")} key={c.title}>
+                <div className="ic">{S ? <S size={22} strokeWidth={1.9} /> : <Icon name={c.icon} />}</div>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
