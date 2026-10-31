@@ -27,7 +27,7 @@ export function Hero() {
           </div>
         </div>
         <div className="hero__photo">
-          <div className="frame"><img src="hero.jpg" alt={profile.name} width="1056" height="1161" /></div>
+          <div className="frame"><img src="hero.jpg" alt={profile.name} width="866" height="1172" /></div>
           <div className="pill"><div className="k">Experience</div><div className="v">5+ years</div></div>
         </div>
       </div>
@@ -217,7 +217,25 @@ export function Footer() {
   return (
     <footer className="site-foot">
       <div className="wrap">
-        <a className="brand" href="#home"><span className="spark" />alam<span>forge</span></a>
+        <a className="brand brand--foot" href="#home">
+          <span className="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 120 120" width="28" height="28" role="img">
+              <defs>
+                <linearGradient id="afShieldFoot" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#3A54D6" /><stop offset="1" stopColor="#0FB5AE" />
+                </linearGradient>
+              </defs>
+              <path d="M60 12 L102 26 V62 Q102 92 60 110 Q18 92 18 62 V26 Z" fill="url(#afShieldFoot)" />
+              <text x="60" y="68" textAnchor="middle" fill="#fff"
+                style={{ fontFamily: "var(--font-display)", fontSize: "33px", fontWeight: 800, letterSpacing: "1px" }}>AF</text>
+              <g stroke="#fff" strokeWidth="2.2" strokeLinecap="round" opacity="0.9">
+                <line x1="60" y1="80" x2="60" y2="89" /><line x1="55" y1="84.5" x2="65" y2="84.5" />
+                <line x1="56.6" y1="81.1" x2="63.4" y2="87.9" /><line x1="63.4" y1="81.1" x2="56.6" y2="87.9" />
+              </g>
+            </svg>
+          </span>
+          <span className="brand__logo">alam<span>forge</span></span>
+        </a>
         <span>© {yr} {profile.name} · Built in {profile.location}</span>
       </div>
     </footer>

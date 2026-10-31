@@ -9,6 +9,9 @@
 /preview/
 /pvw/
 
+# local dev helpers
+/build_preview.py
+
 # production
 /build
 
