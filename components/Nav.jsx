@@ -27,8 +27,12 @@ export default function Nav() {
   }
 
   const Brand = (
-    <a className="brand" href="#home" aria-label="alamforge home">
-      <span className="spark" />alam<span>forge</span>
+    <a className="brand brand--head" href="#home" aria-label={`${profile.name} — home`}>
+      <span className="brand__mark">AF</span>
+      <span className="brand__word">
+        <span className="brand__name">Alam</span>
+        <span className="brand__role">Power Platform · Agentic AI</span>
+      </span>
     </a>
   );
 
