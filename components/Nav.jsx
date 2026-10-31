@@ -28,7 +28,22 @@ export default function Nav() {
 
   const Brand = (
     <a className="brand brand--head" href="#home" aria-label={`${profile.name} — home`}>
-      <span className="brand__mark">AF</span>
+      <span className="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 120 120" width="36" height="36" role="img">
+          <defs>
+            <linearGradient id="afShield" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#3A54D6" /><stop offset="1" stopColor="#0FB5AE" />
+            </linearGradient>
+          </defs>
+          <path d="M60 12 L102 26 V62 Q102 92 60 110 Q18 92 18 62 V26 Z" fill="url(#afShield)" />
+          <text x="60" y="68" textAnchor="middle" fill="#fff"
+            style={{ fontFamily: "var(--font-display)", fontSize: "33px", fontWeight: 800, letterSpacing: "1px" }}>AF</text>
+          <g stroke="#fff" strokeWidth="2.2" strokeLinecap="round" opacity="0.9">
+            <line x1="60" y1="80" x2="60" y2="89" /><line x1="55" y1="84.5" x2="65" y2="84.5" />
+            <line x1="56.6" y1="81.1" x2="63.4" y2="87.9" /><line x1="63.4" y1="81.1" x2="56.6" y2="87.9" />
+          </g>
+        </svg>
+      </span>
       <span className="brand__word">
         <span className="brand__name">Alam</span>
         <span className="brand__role">Power Platform · Agentic AI</span>
