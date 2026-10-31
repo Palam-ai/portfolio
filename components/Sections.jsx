@@ -113,11 +113,13 @@ export function Work() {
                 <span className="tag">{c.tag}</span>
                 <h3>{c.title}</h3>
                 <p className="blurb">{c.body}</p>
-                <div className="metrics">
-                  {c.metrics.map((m, i) => (
-                    <div key={i}><div className="m">{m.value}</div><div className="c">{m.label}</div></div>
-                  ))}
-                </div>
+                {c.metrics && c.metrics.length > 0 && (
+                  <div className="metrics">
+                    {c.metrics.map((m, i) => (
+                      <div key={i}><div className="m">{m.value}</div><div className="c">{m.label}</div></div>
+                    ))}
+                  </div>
+                )}
                 <div className="stack">{c.stack.map((s) => <b key={s}>{s}</b>)}</div>
               </div>
             </article>
@@ -125,7 +127,7 @@ export function Work() {
         </div>
         <div className="note">
           <span style={{ color: "var(--accent)", flex: "none", marginTop: "2px" }}><Icon name="arrow" size={18} /></span>
-          <div><b>These are placeholders.</b> Send your real use cases with numbers and I'll replace the dashes.</div>
+          <div>Figures are conservative and defensible. A few cards still show <b>—</b> where exact numbers are pending; send them and I'll drop them in.</div>
         </div>
       </div>
     </section>
@@ -170,8 +172,10 @@ export function Credentials() {
               <h3>{col.issuer}</h3>
               {col.items.map((it) => (
                 <div className={cls(col.issuer)} key={it.code}>
-                  <div className="badge">{it.code}</div>
-                  <div className="t">{it.name}</div>
+                  {it.logo
+                    ? <div className="badge badge--logo"><img src={it.logo} alt="" width="40" height="40" loading="lazy" /></div>
+                    : <div className="badge">{it.code}</div>}
+                  <div className="t">{it.name}<span className="code">{it.code}</span></div>
                 </div>
               ))}
             </div>

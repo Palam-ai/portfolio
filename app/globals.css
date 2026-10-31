@@ -210,7 +210,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .cred .badge{flex:none;width:52px;height:38px;border-radius:9px;display:grid;place-items:center;font-family:var(--font-mono);font-weight:600;font-size:.64rem;color:#fff;background:linear-gradient(145deg,var(--blue),var(--blue-700));letter-spacing:.01em}
 .cred--gh .badge{background:linear-gradient(145deg,#2b3440,#11161c)}
 .cred--ai .badge{background:linear-gradient(145deg,var(--teal),#0a8d87)}
-.cred .t{font-weight:600;font-size:.88rem;line-height:1.3}
+.cred .badge--logo{width:52px;height:52px;padding:7px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.cred--gh .badge--logo,.cred--ai .badge--logo{background:#fff}
+.cred .badge--logo img{width:100%;height:100%;object-fit:contain;display:block}
+.cred .t{font-weight:600;font-size:.88rem;line-height:1.3;display:flex;flex-direction:column;gap:3px}
+.cred .t .code{font-family:var(--font-mono);font-weight:500;font-size:.64rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
 
 /* ---------- about + hobbies ---------- */
 .about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,56px);align-items:center}
