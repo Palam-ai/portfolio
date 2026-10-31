@@ -137,21 +137,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
   radial-gradient(52% 60% at 85% 6%,var(--accent-tint),transparent 60%),
   radial-gradient(42% 50% at 6% 98%,var(--teal-tint),transparent 64%)}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(28px,5vw,62px);align-items:center;padding-block:clamp(48px,7vw,86px)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,5vw,62px);align-items:start;padding-block:clamp(48px,7vw,86px)}
 .hero__chips{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
 .chip{font-family:var(--font-mono);font-size:.72rem;font-weight:500;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted)}
 .chip--live{color:#0a7d55;border-color:#bfe6d4;background:#e8f7ef}
 .chip--live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:7px;vertical-align:middle}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip--live{color:#5fd6a0;border-color:#275c44;background:#10271d}}
 :root[data-theme="dark"] .chip--live{color:#5fd6a0;border-color:#275c44;background:#10271d}
-.hero__name{font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:.01em;color:var(--fg);margin-bottom:12px;display:flex;align-items:center;gap:9px}
-.hero__name::before{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--teal))}
 .hero h1{font-size:clamp(2rem,5.6vw,3.5rem);font-weight:800}
+.hero h1 .hero__nm{background:linear-gradient(120deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
 .hero h1 .grad{background:linear-gradient(120deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero__role{font-family:var(--font-mono);font-size:.82rem;color:var(--accent);margin-top:18px;letter-spacing:.02em}
 .hero__sub{color:var(--muted);font-size:clamp(1rem,2.1vw,1.16rem);margin-top:16px;max-width:48ch}
 .hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.hero__photo{position:relative;justify-self:center}
+.hero__photo{position:relative;justify-self:end}
 .hero__photo .frame{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);width:min(360px,82vw);background:var(--surface)}
 .hero__photo img{width:100%;aspect-ratio:864/1045;object-fit:cover;object-position:center top;display:block}
 .hero__photo .pill{position:absolute;left:-16px;bottom:24px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:10px 14px;box-shadow:var(--shadow)}
@@ -271,4 +270,32 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .stat{border-right:0}
   .brand--head .brand__role{display:none}
 }
+/* ---------- motion ---------- */
+@keyframes af-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero__chips,.hero h1,.hero__role,.hero__sub,.hero__cta{animation:af-rise .7s cubic-bezier(.22,.9,.3,1) both}
+.hero h1{animation-delay:.07s}
+.hero__role{animation-delay:.14s}
+.hero__sub{animation-delay:.2s}
+.hero__cta{animation-delay:.27s}
+.hero__photo{animation:af-rise .85s cubic-bezier(.22,.9,.3,1) both;animation-delay:.1s}
+.hero__photo .pill{animation:af-rise .6s ease both;animation-delay:.62s}
+
+/* hover micro-interactions */
+.svc,.case,.org,.tile,.cred{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.svc:hover,.case:hover,.org:hover,.cred:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.tile:hover{transform:translateY(-2px);border-color:var(--blue)}
+.btn{transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.btn--primary:hover{transform:translateY(-2px)}
+.btn--ghost:hover{transform:translateY(-2px);border-color:var(--blue)}
+
+/* scroll-reveal (progressive enhancement; elements stay visible where unsupported) */
+@supports (animation-timeline: view()){
+  @keyframes af-reveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  .section .head,.svc,.exp-group,.case,.org,.cred,.mission__text,.about__img,.about__text{
+    animation:af-reveal both linear;
+    animation-timeline:view();
+    animation-range:entry 4% cover 26%;
+  }
+}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}

@@ -17,8 +17,7 @@ export function Hero() {
             <span className="chip chip--live">Available for roles &amp; freelance</span>
             <span className="chip">Microsoft Power Platform · Azure · Agentic AI</span>
           </div>
-          <p className="hero__name">{profile.name}</p>
-          <h1>I forge manual work into <span className="grad">reliable enterprise systems</span>.</h1>
+          <h1>I, <span className="hero__nm">{profile.name}</span>, forge manual work into <span className="grad">reliable enterprise systems</span>.</h1>
           <p className="hero__role">{profile.title} · {profile.location}</p>
           <p className="hero__sub">{profile.tagline}</p>
           <div className="hero__cta">
