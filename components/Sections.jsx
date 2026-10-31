@@ -103,7 +103,7 @@ export function Work() {
         <div className="head">
           <p className="eyebrow">Selected work</p>
           <h2>Use cases</h2>
-          <p>Enterprise work lives behind NDAs, so each is described by the problem solved and the numbers moved, never by client name.</p>
+          <p>Enterprise work lives behind NDAs, so each is described by the problem it solved and how it was built, never by client name.</p>
         </div>
         <div className="cases">
           {useCases.map((c) => (
@@ -124,10 +124,6 @@ export function Work() {
               </div>
             </article>
           ))}
-        </div>
-        <div className="note">
-          <span style={{ color: "var(--accent)", flex: "none", marginTop: "2px" }}><Icon name="arrow" size={18} /></span>
-          <div>Figures are conservative and defensible. A few cards still show <b>—</b> where exact numbers are pending; send them and I'll drop them in.</div>
         </div>
       </div>
     </section>

@@ -45,7 +45,7 @@ export default function Nav() {
         </svg>
       </span>
       <span className="brand__word">
-        <span className="brand__name">Alam</span>
+        <span className="brand__name">Mr. Alam</span>
         <span className="brand__role">Power Platform · Agentic AI</span>
       </span>
     </a>
