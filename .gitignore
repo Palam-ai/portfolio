@@ -7,6 +7,7 @@
 /.next/
 /out/
 /preview/
+/pvw/
 
 # production
 /build
