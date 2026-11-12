@@ -14,7 +14,7 @@ export function Hero() {
       <div className="wrap">
         <div>
           <div className="hero__chips">
-            <span className="chip chip--live">Available for Opportunities &amp; Freelance</span>
+            <span className="chip chip--live">Available for Opportunities</span>
             <span className="chip">Microsoft Power Platform · Azure · Agentic AI</span>
           </div>
           <p className="hero__greet">Hi, I'm <span className="hero__nm">{profile.name}</span>.</p>
