@@ -290,6 +290,36 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .svc,.case,.org,.tile,.cred{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .svc:hover,.case:hover,.org:hover,.cred:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .tile:hover{transform:translateY(-2px);border-color:var(--blue)}
+
+/* 3D logo plates: skills (expertise) and certification badges.
+   The brand artwork is untouched; depth comes from the plate (bevel, edge thickness, cast shadow, tilt). */
+.tile,.cred{perspective:520px}
+.tile{padding:9px 16px 11px 9px;gap:12px}
+.tile .logoplate,.cred .badge--logo{
+  --edge:#c9d3e6;
+  border:1px solid rgba(15,27,51,.07);
+  background:linear-gradient(155deg,#ffffff 0%,#f6f8fd 48%,#e4eaf6 100%);
+  box-shadow:
+    inset 0 1.5px 0 #fff,
+    inset 0 -3px 4px rgba(15,27,51,.09),
+    0 1px 0 var(--edge),0 2px 0 var(--edge),0 3px 0 var(--edge),0 4px 0 #b9c5dc,
+    0 12px 14px -6px rgba(15,27,51,.42);
+  transform:rotateX(10deg) rotateY(-10deg);
+  transform-origin:50% 60%;
+  transition:transform .35s cubic-bezier(.2,.8,.3,1),box-shadow .35s ease;
+  will-change:transform;
+}
+.tile .logoplate{width:40px;height:40px;border-radius:11px;padding:7px;overflow:visible}
+.cred .badge--logo{width:62px;height:62px;border-radius:15px;padding:9px;margin:2px 4px 6px 2px}
+.tile .logoplate img,.cred .badge--logo img{filter:drop-shadow(0 2px 1.5px rgba(15,27,51,.3))}
+.tile:hover .logoplate,.cred:hover .badge--logo{
+  transform:rotateX(0deg) rotateY(0deg) translateY(-4px) scale(1.07);
+  box-shadow:
+    inset 0 1.5px 0 #fff,
+    inset 0 -3px 4px rgba(15,27,51,.09),
+    0 1px 0 var(--edge),0 2px 0 var(--edge),0 3px 0 var(--edge),0 4px 0 #b9c5dc,
+    0 20px 20px -8px rgba(15,27,51,.45);
+}
 .btn{transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
 .btn--primary:hover{transform:translateY(-2px)}
 .btn--ghost:hover{transform:translateY(-2px);border-color:var(--blue)}
