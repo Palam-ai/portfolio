@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Contact from "@/components/Contact";
+import BookingDialog from "@/components/Booking";
 import {
   Hero, Mission, WhatIDo, Expertise, Work, Experience, Credentials, About, Footer,
 } from "@/components/Sections";
@@ -20,6 +21,7 @@ export default function Page() {
         <Contact />
       </main>
       <Footer />
+      <BookingDialog />
     </>
   );
 }

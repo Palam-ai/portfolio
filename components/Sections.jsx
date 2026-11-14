@@ -3,6 +3,7 @@ import {
   experience, credentials, hobbies, about,
 } from "@/lib/content";
 import { Icon } from "./Icons";
+import { BookButton } from "./Booking";
 import { CarFront, BookOpen, LineChart, AppWindow, Workflow, Bot, Database, LifeBuoy } from "lucide-react";
 
 const hobbyIcon = { car: CarFront, book: BookOpen, chart: LineChart };
@@ -22,7 +23,7 @@ export function Hero() {
           <p className="hero__role">{profile.title} · {profile.location}</p>
           <p className="hero__sub">{profile.tagline}</p>
           <div className="hero__cta">
-            <a className="btn btn--primary" href={profile.calendly} target="_blank" rel="noopener">Book a 30-min call <Icon name="arrow" size={16} /></a>
+            <BookButton>Book a 30-min call <Icon name="arrow" size={16} /></BookButton>
             <a className="btn btn--ghost" href="#work">See my work</a>
           </div>
         </div>

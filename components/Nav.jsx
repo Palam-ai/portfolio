@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { nav, profile } from "@/lib/content";
 import { Icon } from "./Icons";
+import { BookButton } from "./Booking";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -64,7 +65,7 @@ export default function Nav() {
           <button className="icon-btn" onClick={toggleTheme} aria-label="Toggle colour theme" title="Toggle theme">
             <Icon name="sun" size={17} />
           </button>
-          <a className="btn btn--primary" href={profile.calendly} target="_blank" rel="noopener">Book a call</a>
+          <BookButton>Book a call</BookButton>
           <button className="icon-btn menu-btn" onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open}>
             <Icon name="menu" size={18} />
           </button>

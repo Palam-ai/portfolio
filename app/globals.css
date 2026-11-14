@@ -291,6 +291,43 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .svc:hover,.case:hover,.org:hover,.cred:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .tile:hover{transform:translateY(-2px);border-color:var(--blue)}
 
+/* ---------- booking dialog ---------- */
+.bk{border:1px solid var(--line);padding:0;border-radius:20px;background:var(--surface);color:var(--fg);
+  width:min(480px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;box-shadow:var(--shadow-lg)}
+.bk::backdrop{background:rgba(9,15,30,.58);backdrop-filter:blur(5px)}
+.bk[open]{animation:bk-in .28s cubic-bezier(.2,.8,.3,1)}
+@keyframes bk-in{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.bk__x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:10px;border:1px solid var(--line);
+  background:var(--surface);color:var(--muted);display:grid;place-items:center;cursor:pointer}
+.bk__x:hover{color:var(--fg);border-color:var(--fg)}
+.bk__body{padding:30px 28px 28px;display:flex;flex-direction:column;gap:16px}
+.bk__body h2{font-size:1.45rem;line-height:1.15;margin-top:-6px;padding-right:36px}
+.bk__lead{color:var(--muted);font-size:.95rem;margin-top:-8px}
+.bk__field{display:flex;flex-direction:column;gap:6px;border:0;padding:0;margin:0;min-width:0}
+.bk__field label,.bk__field legend{font-size:.84rem;font-weight:600;padding:0;display:flex;align-items:baseline;gap:8px}
+.bk__purpose legend{margin-bottom:8px}
+.bk__opt{font-family:var(--font-mono);font-size:.64rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bk__field input[type="text"],.bk__field input[type="email"]{font:inherit;font-size:1rem;color:var(--fg);background:var(--bg);
+  border:1px solid var(--line);border-radius:11px;padding:11px 13px;width:100%;transition:border-color .15s ease,box-shadow .15s ease}
+.bk__field input[type="text"]:hover,.bk__field input[type="email"]:hover{border-color:var(--muted)}
+.bk__field input[type="text"]:focus,.bk__field input[type="email"]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--ring)}
+.bk__field input[aria-invalid="true"]{border-color:#D23B3B}
+.bk__err{font-size:.8rem;color:#D23B3B;font-weight:500}
+.bk__pills{display:flex;flex-wrap:wrap;gap:8px}
+.bk__pill{position:relative;cursor:pointer}
+.bk__pill input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.bk__pill span{display:block;font-size:.88rem;font-weight:500;padding:9px 14px;border-radius:999px;border:1px solid var(--line);
+  background:var(--bg);color:var(--fg);transition:background .15s ease,border-color .15s ease,color .15s ease}
+.bk__pill:hover span{border-color:var(--accent)}
+.bk__pill input:checked + span{background:var(--accent);border-color:var(--accent);color:#fff}
+.bk__pill input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.bk__submit{justify-content:center;width:100%;margin-top:4px;padding-block:14px}
+.bk__done{align-items:flex-start;padding-top:34px}
+.bk__check{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--teal-tint);color:var(--teal)}
+.bk__done h2{margin-top:2px}
+.bk__back{align-self:center;background:none;border:0;color:var(--muted);font:inherit;font-size:.86rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:6px}
+.bk__back:hover{color:var(--fg)}
+
 /* 3D logo plates: skills (expertise) and certification badges.
    The brand artwork is untouched; depth comes from the plate (bevel, edge thickness, cast shadow, tilt). */
 .tile,.cred{perspective:520px}

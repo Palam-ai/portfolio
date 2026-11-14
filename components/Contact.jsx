@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { profile } from "@/lib/content";
 import { Icon } from "./Icons";
+import { BookButton } from "./Booking";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -26,7 +27,7 @@ export default function Contact() {
           <h2>Have a process worth fixing?</h2>
           <p className="lead">Book a short call and tell me what's running on spreadsheets today. If it's a fit, I'll tell you straight how I'd build it.</p>
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "24px" }}>
-            <a className="btn btn--primary" href={profile.calendly} target="_blank" rel="noopener">Book a 30-min call <Icon name="arrow" size={16} /></a>
+            <BookButton>Book a 30-min call <Icon name="arrow" size={16} /></BookButton>
           </div>
         </div>
         <div className="panel">
@@ -37,9 +38,9 @@ export default function Contact() {
               <button type="button" onClick={copyEmail}>{copied ? "Copied" : "Copy"}</button>
             </div>
           </div>
-          <a className="linkrow" href={profile.calendly} target="_blank" rel="noopener">
+          <BookButton className="linkrow">
             <span className="ic"><Icon name="calendar" size={18} /></span> Book a call on Calendly
-          </a>
+          </BookButton>
           <a className="linkrow" href={profile.linkedin} target="_blank" rel="noopener">
             <span className="ic"><Icon name="linkedin" size={17} /></span> linkedin.com/in/alam-prithulbin
           </a>
