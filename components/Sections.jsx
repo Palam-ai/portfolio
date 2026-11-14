@@ -1,15 +1,16 @@
 import {
-  profile, whatIDo, expertise, useCases,
-  experience, credentials, hobbies, about,
+  profile, whatIDo, experience, credentials, hobbies, about,
 } from "@/lib/content";
 import { Icon } from "./Icons";
 import { BookButton } from "./Booking";
+import { Rotator, Tilt } from "./Motion";
 import { CarFront, BookOpen, LineChart, AppWindow, Workflow, Bot, Database, LifeBuoy } from "lucide-react";
 
 const hobbyIcon = { car: CarFront, book: BookOpen, chart: LineChart };
 const svcIcon = { app: AppWindow, flow: Workflow, agent: Bot, data: Database, support: LifeBuoy };
 
 export function Hero() {
+  const certCount = credentials.reduce((n, c) => n + c.items.length, 0);
   return (
     <section className="hero" id="home">
       <div className="wrap">
@@ -19,7 +20,10 @@ export function Hero() {
             <span className="chip">Microsoft Power Platform · Azure · Agentic AI</span>
           </div>
           <p className="hero__greet">Hi, I'm <span className="hero__nm">{profile.name}</span>.</p>
-          <h1>I forge manual work into <span className="grad">reliable enterprise systems</span>.</h1>
+          <h1 aria-label={`I forge manual work into ${profile.forge[0]}.`}>
+            <span aria-hidden="true">I forge manual work into</span>
+            <Rotator items={profile.forge} />
+          </h1>
           <p className="hero__role">{profile.title} · {profile.location}</p>
           <p className="hero__sub">{profile.tagline}</p>
           <div className="hero__cta">
@@ -28,8 +32,9 @@ export function Hero() {
           </div>
         </div>
         <div className="hero__photo">
-          <div className="frame"><img src="hero.jpg" alt={profile.name} width="866" height="1172" /></div>
+          <Tilt className="frame"><img src="hero.jpg" alt={profile.name} width="866" height="1172" /></Tilt>
           <div className="pill"><div className="k">Experience</div><div className="v">5+ years</div></div>
+          <div className="pill pill--b"><div className="k">Certified</div><div className="v">{certCount} credentials</div></div>
         </div>
       </div>
     </section>
@@ -73,69 +78,6 @@ export function WhatIDo() {
   );
 }
 
-export function Expertise() {
-  return (
-    <section className="section section--tint" id="expertise">
-      <div className="wrap">
-        <div className="head">
-          <p className="eyebrow">Tech expertise</p>
-          <h2>The tools I build with</h2>
-          <p>Grouped by where they sit in the stack, from low-code to code.</p>
-        </div>
-        {expertise.map((g) => (
-          <div className="exp-group" key={g.group}>
-            <h3>{g.group}</h3>
-            <div className="tiles">
-              {g.items.map((it) => (
-                <span className="tile" key={it.name}>
-                  {it.logo
-                    ? <span className="logoplate"><img src={it.logo} alt="" width="22" height="22" /></span>
-                    : <span className="dot" />}
-                  {it.name}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-export function Work() {
-  return (
-    <section className="section" id="work">
-      <div className="wrap">
-        <div className="head">
-          <p className="eyebrow">Selected work</p>
-          <h2>Use cases</h2>
-          <p>Enterprise work lives behind NDAs, so each is described by the problem it solved and how it was built, never by client name.</p>
-        </div>
-        <div className="cases">
-          {useCases.map((c) => (
-            <article className="case" key={c.title}>
-              {c.image && <div className="case__img"><img src={c.image} alt={c.title} width="640" height="400" loading="lazy" /></div>}
-              <div className="case__body">
-                <span className="tag">{c.tag}</span>
-                <h3>{c.title}</h3>
-                <p className="blurb">{c.body}</p>
-                {c.metrics && c.metrics.length > 0 && (
-                  <div className="metrics">
-                    {c.metrics.map((m, i) => (
-                      <div key={i}><div className="m">{m.value}</div><div className="c">{m.label}</div></div>
-                    ))}
-                  </div>
-                )}
-                <div className="stack">{c.stack.map((s) => <b key={s}>{s}</b>)}</div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function Experience() {
   return (
     <section className="section section--tint" id="experience">
@@ -150,36 +92,6 @@ export function Experience() {
               <div className="logo"><img src={o.logo} alt={o.company} width="112" height="112" /></div>
               <div className="co">{o.company}</div>
               <div className="role">{o.role}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function Credentials() {
-  const cls = (issuer) => issuer.includes("GitHub") ? "cred cred--gh" : issuer.includes("Claude") ? "cred cred--ai" : "cred";
-  return (
-    <section className="section" id="credentials">
-      <div className="wrap">
-        <div className="head">
-          <p className="eyebrow">Credentials</p>
-          <h2>Certifications</h2>
-          <p>Microsoft Power Platform and AI, GitHub, and the full Anthropic Claude track.</p>
-        </div>
-        <div className="creds">
-          {credentials.map((col) => (
-            <div className="cred-col" key={col.issuer}>
-              <h3>{col.issuer}</h3>
-              {col.items.map((it) => (
-                <div className={cls(col.issuer)} key={it.code}>
-                  {it.logo
-                    ? <div className="badge badge--logo"><img src={it.logo} alt="" width="40" height="40" loading="lazy" /></div>
-                    : <div className="badge">{it.code}</div>}
-                  <div className="t">{it.name}<span className="code">{it.code}</span></div>
-                </div>
-              ))}
             </div>
           ))}
         </div>

@@ -2,12 +2,12 @@ import "./globals.css";
 import { profile } from "@/lib/content";
 
 export const metadata = {
-  title: "alamforge — Sk Prithulbin Alam",
+  title: "alamforge | Sk Prithulbin Alam",
   description:
-    "Sk Prithulbin Alam — Power Platform & Agentic AI Solutions Engineer. Apps, automations and AI agents on Microsoft Power Platform and Azure.",
+    "Sk Prithulbin Alam builds apps, automations and AI agents on Microsoft Power Platform and Azure.",
   metadataBase: new URL("https://alamforge.com"),
   openGraph: {
-    title: "alamforge — Sk Prithulbin Alam",
+    title: "alamforge | Sk Prithulbin Alam",
     description: "Power Platform & Agentic AI Solutions Engineer.",
     url: "https://alamforge.com",
     siteName: "alamforge",

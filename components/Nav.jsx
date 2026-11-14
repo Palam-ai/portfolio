@@ -28,7 +28,7 @@ export default function Nav() {
   }
 
   const Brand = (
-    <a className="brand brand--head" href="#home" aria-label={`${profile.name} — home`}>
+    <a className="brand brand--head" href="#home" aria-label={`${profile.name}, home`}>
       <span className="brand__mark" aria-hidden="true">
         <svg viewBox="0 0 120 120" width="36" height="36" role="img">
           <defs>
