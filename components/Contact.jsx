@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
-import { profile } from "@/lib/content";
+import { profile, resume } from "@/lib/content";
 import { Icon } from "./Icons";
 import { BookButton } from "./Booking";
+import { Download } from "lucide-react";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -44,6 +45,11 @@ export default function Contact() {
           <a className="linkrow" href={profile.linkedin} target="_blank" rel="noopener">
             <span className="ic"><Icon name="linkedin" size={17} /></span> linkedin.com/in/alam-prithulbin
           </a>
+          {resume && (
+            <a className="linkrow" href={resume.file} download={resume.file.split("/").pop()}>
+              <span className="ic"><Download size={17} /></span> Download my resume (PDF)
+            </a>
+          )}
           <a className="linkrow" href={profile.blog} target="_blank" rel="noopener">
             <span className="ic"><Icon name="book" size={17} /></span> blogs.alamforge.com
           </a>

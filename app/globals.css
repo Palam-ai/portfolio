@@ -110,7 +110,7 @@ img{max-width:100%;display:block}
   background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
-.nav{display:flex;align-items:center;gap:18px;height:66px}
+.nav{display:flex;align-items:center;gap:14px;height:66px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.18rem;letter-spacing:-.02em}
 .brand .spark{width:13px;height:13px;border-radius:4px;background:linear-gradient(140deg,var(--blue),var(--teal));box-shadow:0 0 0 3px var(--accent-tint)}
 .brand span{color:var(--accent)}
@@ -124,10 +124,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .brand--head .brand__word{display:flex;flex-direction:column;line-height:1;white-space:nowrap}
 .brand--head .brand__name{font-size:1.14rem;font-weight:800;letter-spacing:-.02em;color:var(--fg)}
 .brand--head .brand__role{font-family:var(--font-mono);font-weight:500;font-size:.55rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:4px;white-space:nowrap}
-.nav__links{display:flex;gap:2px;margin-left:auto}
-.nav__links a{font-size:.9rem;color:var(--muted);padding:8px 12px;border-radius:9px;white-space:nowrap}
+.nav__links{display:flex;gap:0;margin-left:auto}
+.nav__links a{font-size:.875rem;color:var(--muted);padding:8px 10px;border-radius:9px;white-space:nowrap}
+/* The logo already links home, so the desktop row drops "Home" to make room. The mobile menu keeps it. */
+.nav__links a[href="#home"]{display:none}
 .nav__links a:hover{color:var(--fg);background:var(--surface-2)}
-.nav__right{display:flex;align-items:center;gap:8px}
+.nav__right{display:flex;align-items:center;gap:8px;flex:none}
+.nav__right .btn{padding:10px 16px}
 .icon-btn{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
 .icon-btn:hover{border-color:var(--accent);color:var(--accent)}
 .menu-btn{display:none}
@@ -257,9 +260,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .site-foot .wrap{display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.84rem}
 
 /* ---------- responsive ---------- */
-@media(max-width:900px){
+/* The full link row needs the whole 1140px container; below that the menu button takes over. */
+@media(max-width:1180px){
   .nav__links{display:none}
+  .nav__right{margin-left:auto}
   .menu-btn{display:inline-grid}
+}
+@media(max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
   .hero__photo{order:-1;justify-self:start;align-self:start}
   .hero__photo .frame{width:min(280px,68vw);height:auto}
@@ -328,6 +335,49 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .bk__back{align-self:center;background:none;border:0;color:var(--muted);font:inherit;font-size:.86rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:6px}
 .bk__back:hover{color:var(--fg)}
 
+/* ---------- resume ---------- */
+.rs .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,6vw,72px);align-items:center}
+.rs__text{display:flex;flex-direction:column;gap:14px}
+.rs__text h2{font-size:clamp(1.75rem,4.3vw,2.6rem)}
+.rs__lead{color:var(--muted);font-size:1.06rem;max-width:44ch}
+.rs__facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.rs__facts span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 11px}
+.rs__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.rs__paper{position:relative;display:block;justify-self:center;width:100%;max-width:430px;padding:0;border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in;box-shadow:var(--shadow-lg);
+  transition:translate .3s cubic-bezier(.2,.8,.3,1),box-shadow .3s ease}
+.rs__paper img{display:block;width:100%;height:auto}
+.rs__paper:hover{translate:0 -6px}
+.rs__paper:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.rs__hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--font-body);font-size:.82rem;font-weight:600;color:#fff;background:rgba(15,27,51,.86);
+  padding:8px 14px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 20px -8px rgba(15,27,51,.6)}
+@media (hover:hover){
+  .rs__hint{opacity:0;transition:opacity .2s ease}
+  .rs__paper:hover .rs__hint,.rs__paper:focus-visible .rs__hint{opacity:1}
+}
+.rv{border:1px solid var(--line);padding:0;border-radius:18px;background:var(--surface-2);color:var(--fg);
+  width:min(940px,calc(100vw - 24px));height:calc(100dvh - 24px);max-height:none;overflow:hidden;box-shadow:var(--shadow-lg)}
+.rv[open]{display:flex;flex-direction:column;animation:bk-in .28s cubic-bezier(.2,.8,.3,1)}
+.rv::backdrop{background:rgba(9,15,30,.66);backdrop-filter:blur(5px)}
+.rv__bar{flex:none;display:flex;align-items:center;gap:8px;padding:10px 12px 10px 18px;background:var(--surface);border-bottom:1px solid var(--line)}
+.rv__title{font-family:var(--font-display);font-weight:700;font-size:1rem;margin-right:auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rv__title span{font-family:var(--font-body);font-weight:500;font-size:.88rem;color:var(--muted);margin-left:8px}
+.rv__dl{padding:9px 14px;font-size:.88rem;border-radius:10px}
+.rv__pages{flex:1;min-height:0;overflow:auto;padding:clamp(10px,2.5vw,24px);display:flex;flex-direction:column;gap:16px;overscroll-behavior:contain}
+.rv__pages img{display:block;width:100%;height:auto;flex:none;background:#fff;border-radius:6px;box-shadow:var(--shadow);cursor:zoom-in}
+.rv__pages.is-zoom img{width:max(1400px,180%);max-width:none;cursor:zoom-out}
+html:has(dialog[open]){overflow:hidden}
+@media(max-width:900px){
+  .rs .wrap{grid-template-columns:1fr}
+  .rs__paper{justify-self:start;max-width:360px}
+}
+@media(max-width:520px){
+  .rv__title span,.rv__dl span{display:none}
+  .rv__pages.is-zoom img{width:240%}
+}
+
 /* 3D logo plates: skills (expertise) and certification badges.
    The brand artwork is untouched; depth comes from the plate (bevel, edge thickness, cast shadow, tilt). */
 .tile,.cred{perspective:520px}
@@ -364,7 +414,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* scroll-reveal (progressive enhancement; elements stay visible where unsupported) */
 @supports (animation-timeline: view()){
   @keyframes af-reveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-  .section .head,.svc,.exp-group,.case,.org,.cred,.mission__text,.about__img,.about__text{
+  .section .head,.svc,.exp-group,.case,.org,.cred,.mission__text,.about__img,.about__text,.rs__text,.rs__paper{
     animation:af-reveal both linear;
     animation-timeline:view();
     animation-range:entry 4% cover 26%;
